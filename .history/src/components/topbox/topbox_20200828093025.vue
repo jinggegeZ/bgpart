@@ -68,10 +68,6 @@ export default {
             let arr = this.toparr.filter(item => {
               return item.url === this.$route.meta.parentPath;
             });
-            if (arr[0].name === '首页') {
-          this.$delete(arr[0], 'children')
-          this.$set(arr[0], 'children', [{ name: '首页', url: '/index' }])
-        }
             this.$bus.$emit('menus', arr)
           }
         })
@@ -79,24 +75,17 @@ export default {
           console.log(err);
         });
     },
-    handleSelect(index) {
-      // let index = this.toparr.findIndex(item => {
-      //   return item.url === key;
-      // });
- let arr = this.toparr.filter(item => {
-        return item.url === index
-      })
-      console.log(arr);
-      // let menu_id = this.toparr[index].menu_id;
-      // this.leftarrs = this.leftarr.filter(item => {
-      //   return item.parent_id == menu_id;
-      // });
-      // console.log(this.leftarrs);
-      if (arr[0].name === '首页') {
-        this.$delete(arr[0], 'children')
-        this.$set(arr[0], 'children', [{ name: '首页', url: '/index' }])
-      }
-      this.$bus.$emit("menus", arr);
+    handleSelect(key) {
+      let index = this.toparr.findIndex(item => {
+        return item.url === key;
+      });
+
+      let menu_id = this.toparr[index].menu_id;
+      this.leftarrs = this.leftarr.filter(item => {
+        return item.parent_id == menu_id;
+      });
+      console.log(this.leftarrs);
+      this.$bus.$emit("leftarrs", this.leftarrs);
     }
   },
 

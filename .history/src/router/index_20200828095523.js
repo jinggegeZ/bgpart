@@ -12,7 +12,7 @@ const routes = [
   },
   {
     path: '',
-    component: layout,
+    component: Layout,
     children: [
       {
         path: '/index',
@@ -30,12 +30,12 @@ const routes = [
   },
   {
     path: '',
-    component: layout,
+    component: Layout,
     children: [
       {
         path: '/goods/index',
         name: '/goods',
-        component: () => import("../views/goods/goods"),
+        component: () => import('"../views/goods/goods"'),
         meta: {
           title: '商品',
           parentPath: '/goods'
@@ -45,12 +45,12 @@ const routes = [
   },
   {
     path: '',
-    component: layout,
+    component: Layout,
     children: [
       {
         path: '/goods/admin/create',
         name: 'create',
-        component: () => import('../views/goods/create/Create'),
+        component: () => import('../pages/goods/create/Create'),
         meta: {
           title: '添加商品',
           parentPath: '/goods'
@@ -60,12 +60,12 @@ const routes = [
   },
   {
     path: '',
-    component: layout,
+    component: Layout,
     children: [
       {
         path: '/goods/admin/list',
         name: 'list',
-        component: () => import('../views/goods/list/List'),
+        component: () => import('../pages/goods/list/List'),
         meta: {
           title: '商品列表',
           parentPath: '/goods'
@@ -75,12 +75,12 @@ const routes = [
   },
   {
     path: '',
-    component: layout,
+    component: Layout,
     children: [
       {
         path: '/goods/setting/category',
         name: 'category',
-        component: () => import('../views/goods/category/Category'),
+        component: () => import('../pages/goods/category/Category'),
         meta: {
           title: '商品分类',
           parentPath: '/goods'
@@ -90,12 +90,12 @@ const routes = [
   },
   {
     path: '',
-    component: layout,
+    component: Layout,
     children: [
       {
         path: '/goods/setting/brand',
         name: 'brand',
-        component: () => import('../views/goods/brand/Brand'),
+        component: () => import('../pages/goods/brand/Brand'),
         meta: {
           title: '商品品牌',
           parentPath: '/goods'
@@ -105,12 +105,12 @@ const routes = [
   },
   {
     path: '',
-    component: layout,
+    component: Layout,
     children: [
       {
         path: '/goods/setting/type',
         name: 'type',
-        component: () => import('../views/goods/type/Type'),
+        component: () => import('../pages/goods/type/Type'),
         meta: {
           title: '商品模型',
           parentPath: '/goods'
@@ -120,12 +120,12 @@ const routes = [
   },
   {
     path: '',
-    component: layout,
+    component: Layout,
     children: [
       {
         path: '/goods/setting/spec',
         name: 'spec',
-        component: () => import('../views/goods/spec/Spec'),
+        component: () => import('../pages/goods/spec/Spec'),
         meta: {
           title: '商品规格',
           parentPath: '/goods'
@@ -135,12 +135,12 @@ const routes = [
   },
   {
     path: '',
-    component: layout,
+    component: Layout,
     children: [
       {
         path: '/goods/setting/attribute',
         name: 'attribute',
-        component: () => import('../views/goods/attribute/Attribute'),
+        component: () => import('../pages/goods/attribute/Attribute'),
         meta: {
           title: '商品属性',
           parentPath: '/goods'
@@ -150,12 +150,12 @@ const routes = [
   },
   {
     path: '',
-    component: layout,
+    component: Layout,
     children: [
       {
         path: '/goods/opinion/comment',
         name: 'comment',
-        component: () => import('../views/goods/comment/Comment'),
+        component: () => import('../pages/goods/comment/Comment'),
         meta: {
           title: '商品评价',
           parentPath: '/goods'
@@ -165,12 +165,12 @@ const routes = [
   },
   {
     path: '',
-    component: layout,
+    component: Layout,
     children: [
       {
         path: '/goods/opinion/consult',
         name: 'consult',
-        component: () => import('../views/goods/consult/Consult'),
+        component: () => import('../pages/goods/consult/Consult'),
         meta: {
           title: '商品咨询',
           parentPath: '/goods'
@@ -183,94 +183,98 @@ const routes = [
     redirect:'/order/index'
   },
   {
-    path: '',
-    component: layout,
-    children: [
-      {
-        path: '/order/index',
-        name: 'order',
-        component: () => import('../views/order/order'),
-        meta: {
-          title: '订单',
-          parentPath: '/order'
-        }
-      }
-    ]
-  },
-  {
-    path:'/marketing',
+    path:'/order',
     redirect:'/marketing/index'
   },
   {
-    path: '',
-    component: layout,
-    children: [
-      {
-        path: '/marketing/index',
-        name: 'marketing',
-        component: () => import('../views/marketing/marketing'),
-        meta: {
-          title: '营销',
-          parentPath: '/marketing'
-        }
-      }
-    ]
-  },
-  {
-    path: '/member',
-    redirect: '/member/index'
-  },
-  {
-    path: '',
-    component: layout,
-    children: [
-      {
-        path: '/member/index',
-        name: 'member',
-        component: () => import('../views/member/member'),
-        meta: {
-          title: '会员',
-          parentPath: '/member'
-        }
-      }
-    ]
-  },
-  {
-    path:'/system',
+    path:'/order',
     redirect:'/system/index'
   },
+
+
+
   {
-    path: '',
+    path:'/',
+    name:'layout',
     component: layout,
     children: [
+      {
+        path: '/index',
+        name: 'Home',
+        component: Home,
+        meta:{
+          parentPath: '/index'
+        }
+      },
+      //index页面
+      {
+        path: '/index',
+        name: 'index',
+        component: () => 
+        import("../views/index/index")
+      },
+      //商品
+      {
+        path: '/goods',
+        name: 'goods',
+        component: () => 
+        import("../views/goods/goods")
+      },
+      {
+        path: '/goods/index',
+        name: 'goods/index',
+        component: () => 
+        import("../views/goods1/goods1")
+      },
+      {
+        path: '/order',
+        name: 'order',
+        component: () => 
+        import("../views/order/order")
+      },
+      {
+        path: '/order/index',
+        name: 'order/index',
+        component: () => 
+        import("../views/order1/order1")
+      },
+      {
+        path: '/marketing',
+        name: 'marketing',
+        component: () => 
+        import("../views/marketing/marketing")
+      },
+      {
+        path: '/marketing/index',
+        name: 'marketing/index',
+        component: () => 
+        import("../views/marketing1/marketing1")
+      },
+      {
+        path: '/system',
+        name: 'system',
+        component: () => 
+        import("../views/system/system")
+      },
       {
         path: '/system/index',
         name: 'system',
-        component: () => import('../views/system/system'),
-        meta: {
-          title: '系统',
-          parentPath: '/system'
-        }
-      }
-    ]
-  },
-  {
-    path: '/setting',
-    redirect: '/setting/index'
-  },
-  {
-    path: '',
-    component: layout,
-    children: [
+        component: () => 
+        import("../views/system1/system1")
+      },
       {
-        path: '/setting/index',
+        path: '/member',
+        name: 'member',
+        component: () => 
+        import("../views/member/member")
+      },
+      {
+        path: '/setting',
         name: 'setting',
-        component: () => import('../views/setting/setting'),
-        meta: {
-          title: '设置',
-          parentPath: '/setting'
-        }
-      }
+        component: () => 
+        import("../views/setting/setting")
+      },
+
     ]
   },
   {

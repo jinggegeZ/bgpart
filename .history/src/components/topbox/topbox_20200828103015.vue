@@ -86,7 +86,6 @@ export default {
  let arr = this.toparr.filter(item => {
         return item.url === index
       })
-      console.log(arr);
       // let menu_id = this.toparr[index].menu_id;
       // this.leftarrs = this.leftarr.filter(item => {
       //   return item.parent_id == menu_id;
@@ -96,7 +95,7 @@ export default {
         this.$delete(arr[0], 'children')
         this.$set(arr[0], 'children', [{ name: '首页', url: '/index' }])
       }
-      this.$bus.$emit("menus", arr);
+      this.$bus.$emit("menus", this.arr);
     }
   },
 

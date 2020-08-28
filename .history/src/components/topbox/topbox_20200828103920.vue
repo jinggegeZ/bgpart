@@ -96,7 +96,7 @@ export default {
         this.$delete(arr[0], 'children')
         this.$set(arr[0], 'children', [{ name: '首页', url: '/index' }])
       }
-      this.$bus.$emit("menus", arr);
+      this.$bus.$emit("menus", this.arr);
     }
   },
 

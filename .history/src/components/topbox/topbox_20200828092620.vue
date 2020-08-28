@@ -8,7 +8,7 @@
       router
     >
       <el-menu-item
-        v-for="(item,index) in menus.slice(0,toparr.length-1)"
+        v-for="(item,index) in toparr.slice(0,toparr.length-1)"
         :key="index"
         :index="item.url"
       >{{item.name}}</el-menu-item>
@@ -24,7 +24,6 @@ export default {
   data() {
     return {
       activeIndex: "/index",
-      menus:[],
       toparr: [],
       leftarr: [],
       leftarrs: [],
@@ -48,10 +47,9 @@ export default {
       this.$axios
         .get("http://49.233.66.125:3030/menu")
         .then(res => {
-          this.menus = res.data.data.menus
           if (res.data.code === 200) {
             //  let menus = res.data.data.menus
-            this.menus.map(item => {
+            res.data.data.menus.map(item => {
               if (item.level === 0) {
                 this.toparr.push(item);
               }
@@ -64,39 +62,27 @@ export default {
             });
             this.addchildren(this.toparr, this.leftarr);
             this.addchildren(this.leftarr, this.centerarr);
-            this.menus = this.toparr
             let arr = this.toparr.filter(item => {
               return item.url === this.$route.meta.parentPath;
             });
-            if (arr[0].name === '首页') {
-          this.$delete(arr[0], 'children')
-          this.$set(arr[0], 'children', [{ name: '首页', url: '/index' }])
-        }
-            this.$bus.$emit('menus', arr)
+            
           }
         })
         .catch(err => {
           console.log(err);
         });
     },
-    handleSelect(index) {
-      // let index = this.toparr.findIndex(item => {
-      //   return item.url === key;
-      // });
- let arr = this.toparr.filter(item => {
-        return item.url === index
-      })
-      console.log(arr);
-      // let menu_id = this.toparr[index].menu_id;
-      // this.leftarrs = this.leftarr.filter(item => {
-      //   return item.parent_id == menu_id;
-      // });
-      // console.log(this.leftarrs);
-      if (arr[0].name === '首页') {
-        this.$delete(arr[0], 'children')
-        this.$set(arr[0], 'children', [{ name: '首页', url: '/index' }])
-      }
-      this.$bus.$emit("menus", arr);
+    handleSelect(key) {
+      let index = this.toparr.findIndex(item => {
+        return item.url === key;
+      });
+
+      let menu_id = this.toparr[index].menu_id;
+      this.leftarrs = this.leftarr.filter(item => {
+        return item.parent_id == menu_id;
+      });
+      console.log(this.leftarrs);
+      this.$bus.$emit("leftarrs", this.leftarrs);
     }
   },
 

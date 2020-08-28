@@ -47,7 +47,6 @@ export default {
   },
   mounted() {
      this.$bus.$on('menus', data => { 
-       console.log(data);
       this.menus = data[0].children
     })
   },

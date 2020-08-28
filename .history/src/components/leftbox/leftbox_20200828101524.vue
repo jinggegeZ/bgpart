@@ -39,15 +39,30 @@ export default {
   components: {},
   data() {
     return {
-        menus:[]
+        id:'',
+        leftarrs:[],
+        leftarrss:[]
     };
   },
   methods: {
+    handleOpen(key) {
+      console.log(key);
+       let index = this.leftarrs.findIndex((item) => {
+        return item.url === key
+      })
     
+        let menu_id = this.toparr[index].menu_id
+        this.leftarrss= this.leftarr.filter((item) => {
+          return item.parent_id == menu_id
+        })
+        console.log(this.leftarrss);
+    },
+    handleClose(key, keyPath) {
+      console.log(key, keyPath);
+    }
   },
   mounted() {
      this.$bus.$on('menus', data => { 
-       console.log(data);
       this.menus = data[0].children
     })
   },

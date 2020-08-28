@@ -12,7 +12,7 @@ const routes = [
   },
   {
     path: '',
-    component: layout,
+    component: Layout,
     children: [
       {
         path: '/index',
@@ -30,7 +30,7 @@ const routes = [
   },
   {
     path: '',
-    component: layout,
+    component: Layout,
     children: [
       {
         path: '/goods/index',
@@ -45,7 +45,7 @@ const routes = [
   },
   {
     path: '',
-    component: layout,
+    component: Layout,
     children: [
       {
         path: '/goods/admin/create',
@@ -60,7 +60,7 @@ const routes = [
   },
   {
     path: '',
-    component: layout,
+    component: Layout,
     children: [
       {
         path: '/goods/admin/list',
@@ -75,7 +75,7 @@ const routes = [
   },
   {
     path: '',
-    component: layout,
+    component: Layout,
     children: [
       {
         path: '/goods/setting/category',
@@ -90,7 +90,7 @@ const routes = [
   },
   {
     path: '',
-    component: layout,
+    component: Layout,
     children: [
       {
         path: '/goods/setting/brand',
@@ -105,7 +105,7 @@ const routes = [
   },
   {
     path: '',
-    component: layout,
+    component: Layout,
     children: [
       {
         path: '/goods/setting/type',
@@ -120,7 +120,7 @@ const routes = [
   },
   {
     path: '',
-    component: layout,
+    component: Layout,
     children: [
       {
         path: '/goods/setting/spec',
@@ -135,7 +135,7 @@ const routes = [
   },
   {
     path: '',
-    component: layout,
+    component: Layout,
     children: [
       {
         path: '/goods/setting/attribute',
@@ -150,7 +150,7 @@ const routes = [
   },
   {
     path: '',
-    component: layout,
+    component: Layout,
     children: [
       {
         path: '/goods/opinion/comment',
@@ -165,7 +165,7 @@ const routes = [
   },
   {
     path: '',
-    component: layout,
+    component: Layout,
     children: [
       {
         path: '/goods/opinion/consult',
@@ -184,7 +184,7 @@ const routes = [
   },
   {
     path: '',
-    component: layout,
+    component: Layout,
     children: [
       {
         path: '/order/index',
@@ -203,7 +203,7 @@ const routes = [
   },
   {
     path: '',
-    component: layout,
+    component: Layout,
     children: [
       {
         path: '/marketing/index',
@@ -222,7 +222,7 @@ const routes = [
   },
   {
     path: '',
-    component: layout,
+    component: Layout,
     children: [
       {
         path: '/member/index',
@@ -241,7 +241,7 @@ const routes = [
   },
   {
     path: '',
-    component: layout,
+    component: Layout,
     children: [
       {
         path: '/system/index',
@@ -260,7 +260,7 @@ const routes = [
   },
   {
     path: '',
-    component: layout,
+    component: Layout,
     children: [
       {
         path: '/setting/index',
