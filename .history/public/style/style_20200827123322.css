@@ -1,0 +1,24 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+ body html {
+     height: 100%;
+ }
+.homebox {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+}
+.topbox {
+    width: 90%;
+    height: 79px;
+    line-height: 80px;
+  border-bottom: 1px solid rgb(208,208,208);
+}
+.leftbox {
+    width: 10%;
+    height: 100%;
+    border-right: 1px solid rgb(208,208,208);
+}

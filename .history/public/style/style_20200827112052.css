@@ -1,0 +1,23 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+.homebox {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+.homebox1 {
+    width: 100%;
+    min-height: 800px;
+}
+.topbox {
+    width: 80%;
+    height: 100px;
+    background: skyblue;
+}
+.leftbox {
+    width: 20%;
+    min-height: 800px;
+    background: red;
+}
